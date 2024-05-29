@@ -1,6 +1,6 @@
 <?php
 if (!empty($_POST["btnRegistrarUsuario"])) {
-    if (!empty($_POST["nombre"]) and !empty($_POST["apellido"]) and !empty($_POST["usuario"]) and !empty($_POST["clave"])) {
+    if  (!empty($_POST["nombre"]) and !empty($_POST["apellido"]) and !empty($_POST["usuario"]) and !empty($_POST["clave"])) {
         $nombre = $_POST["nombre"];
         $apellido = $_POST["apellido"];
         $usuario = $_POST["usuario"];

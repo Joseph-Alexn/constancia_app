@@ -68,7 +68,7 @@ while ($datos_reporte = $consulta_reporte->fetch_object()) {
     /* TABLA */
     $pdf->Cell(18, 10, utf8_decode("$datos_reporte->id_usuario"), 1, 0, 'C', 0);
     $pdf->Cell(40, 10, utf8_decode("$datos_reporte->nombre"), 1, 0, 'C', 0);
-    $pdf->Cell(40, 10, utf8_decode("$datos_reporte->apellido"), 1, 0, 'C', 0);
+    $pdf->Cell(50, 10, utf8_decode("$datos_reporte->apellido"),1, 1, 'C', 0);
     $pdf->Cell(40, 10, utf8_decode("$datos_reporte->usuario"), 1, 0, 'C', 0);
     $pdf->Cell(50, 10, utf8_decode("$datos_reporte->clave"),1, 1, 'C', 0);
 }

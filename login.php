@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD-PHP</title>
+    <title>Constancias de trabajo</title>
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -30,7 +30,7 @@
                         El campo no puede estar vacio
                     </div>
                 </div>
-                <label for="validationServer02" class="form-label"> Password</label>
+                <label for="validationServer02" class="form-label"> Contraseña </label>
                 <div class="mb-3  input-group has-validation">
                     <input type="password" id="validationServer02" class="form-control" name="clave" required>
                     <button type="button" class="btn btn-dark fas fa-eye verPassword" data-bs-toggle="button" onclick="vista()" id="verPassword"></button>

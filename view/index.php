@@ -12,7 +12,7 @@ if (empty($_SESSION["id_usuario"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD-PHP</title>
+    <title>Constancias de trabajo</title>
     <link rel="shortcut icon" href="../assets/icon.png" type="image/x-icon">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -44,9 +44,7 @@ if (empty($_SESSION["id_usuario"])) {
                     <th class="bg-transparent" scope="col">NOMBRE</th>
                     <th class="bg-transparent" scope="col">APELLIDO</th>
                     <th class="bg-transparent" scope="col">CEDULA</th>
-                    <th class="bg-transparent" scope="col">F_NACIMIENTO</th>
-                    <th class="bg-transparent" scope="col">CORREO</th>
-                    <th class="bg-transparent" scope="col">Acciones</th>
+                    <th class="bg-transparent" scope="col">CARGO</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,8 +57,7 @@ if (empty($_SESSION["id_usuario"])) {
                         <td><?= $datos->nombre; ?></td>
                         <td><?= $datos->apellido; ?></td>
                         <td><?= $datos->cedula; ?></td>
-                        <td><?= $datos->f_nac; ?></td>
-                        <td><?= $datos->correo; ?></td>
+                        <td><?= $datos->cargo; ?></td>
                         <td>
 
 

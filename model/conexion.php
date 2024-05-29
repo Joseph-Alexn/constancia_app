@@ -1,4 +1,4 @@
 <?php
-    $conexion=new mysqli("localhost","root","za63qj2p","CRUD_MVC");
+    $conexion=new mysqli("localhost","root","","constancias_trabajo");
     $conexion->set_charset("utf8");
 ?>

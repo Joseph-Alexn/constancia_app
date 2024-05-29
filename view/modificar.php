@@ -43,12 +43,8 @@ $sql = $conexion->query("select * from persona where id_persona=$id");
                     <input type="text" class="form-control" readonly name="cedula" value="<?= $datos->cedula; ?>">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"> Fecha de Nacimiento</label>
-                    <input type="text" class="form-control" name="f_nac" value="<?= $datos->f_nac; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"> Correo </label>
-                    <input type="email" class="form-control" name="correo" value="<?= $datos->correo; ?>">
+                    <label for="exampleInputEmail1" class="form-label"> Cargo</label>
+                    <input type="text" class="form-control" name="cargo" value="<?= $datos->cargo; ?>">
                 </div>
 
 

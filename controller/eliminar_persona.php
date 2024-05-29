@@ -1,5 +1,5 @@
 <?php
-include "model/conexion.php";
+include "../model/conexion.php";
 
     if(!empty($_GET["id"])){
         

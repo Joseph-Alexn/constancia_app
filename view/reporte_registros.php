@@ -34,8 +34,7 @@ class PDF extends FPDF
       $this->Cell(20, 10, utf8_decode('NOMBRE'), 1, 0, 'C', 1);
       $this->Cell(30, 10, utf8_decode('APELLIDO'), 1, 0, 'C', 1);
       $this->Cell(25, 10, utf8_decode('CEDULA'), 1, 0, 'C', 1);
-      $this->Cell(50, 10, utf8_decode('F_NACIMIENTO'), 1, 0, 'C', 1);
-      $this->Cell(50, 10, utf8_decode('CORREO'), 1, 1, 'C', 1);
+      $this->Cell(50, 10, utf8_decode('CARGO'), 1, 0, 'C', 1);
    }
 
    // Pie de página
@@ -74,8 +73,7 @@ while ($datos_reporte = $consulta_reporte->fetch_object()) {
    $pdf->Cell(20, 10, utf8_decode("$datos_reporte->nombre"), 1, 0, 'C', 0);
    $pdf->Cell(30, 10, utf8_decode("$datos_reporte->apellido"), 1, 0, 'C', 0);
    $pdf->Cell(25, 10, utf8_decode("$datos_reporte->cedula"), 1, 0, 'C', 0);
-   $pdf->Cell(50, 10, utf8_decode("$datos_reporte->f_nac"), 1, 0, 'C', 0);
-   $pdf->Cell(50, 10, utf8_decode("$datos_reporte->correo"), 1, 1, 'C', 0);
+   $pdf->Cell(50, 10, utf8_decode("$datos_reporte->cargo"), 1, 0, 'C', 0);
 }
 
 
