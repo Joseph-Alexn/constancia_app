@@ -1,6 +1,6 @@
 <?php
 
-require('./fpdf.php');
+require('fpdf.php');
 
 class PDF extends FPDF
 {
@@ -48,7 +48,7 @@ class PDF extends FPDF
     }
 }
 
-include '../../model/conexion_usuario.php';
+include '../model/conexion_usuario.php';
 /* CONSULTA INFORMACION DE LA BASA DE DATOS */
 $consulta_info = $conexion->query(" select * from usuario ");
 $dato_info = $consulta_info->fetch_object();

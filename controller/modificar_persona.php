@@ -7,7 +7,7 @@ if (!empty($_POST["btnactualizar"])) {
         $cedula = $_POST["cedula"];
         $cargo = $_POST["cargo"];
 
-        $sql = $conexion->query("UPDATE persona SET nombre='$nombre', apellido='$apellido', cedula=$cedula, cargo='$cargo', WHERE id_persona=$id");
+        $sql = $conexion->query("UPDATE persona SET nombre='$nombre', apellido='$apellido', cedula=$cedula, cargo='$cargo' WHERE id_persona=$id");
         if ($sql == 1) {
             header("location:index.php");
         } else {

@@ -62,10 +62,11 @@ if (empty($_SESSION["id_usuario"])) {
 
 
 
-                            <a href="./modifcar.php?id=<?= $datos->id_persona; ?>" class="btn btn-small btn-warning "><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i></a>
+
+                            <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning "><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
+                            <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
 
 
-                            <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona; ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
                         </td>
                     </tr>
                 <?php

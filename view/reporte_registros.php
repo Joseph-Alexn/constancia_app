@@ -1,6 +1,6 @@
 <?php
 
-require('./fpdf.php');
+require('./fpdf/fpdf.php');
 
 class PDF extends FPDF
 {
@@ -21,7 +21,7 @@ class PDF extends FPDF
       $this->SetTextColor(109, 160, 159);
       $this->Cell(50); // mover a la derecha
       $this->SetFont('Arial', 'B', 15);
-      $this->Cell(100, 10, utf8_decode("REPORTE DE REGISTROS "), 0, 1, 'C', 0);
+      $this->Cell(100, 10, utf8mb4_decode("REPORTE DE REGISTROS"), 0, 1, 'C', 0);
       $this->Ln(7);
 
       /* CAMPOS DE LA TABLA */
@@ -51,7 +51,7 @@ class PDF extends FPDF
    }
 }
 
-include '../../model/conexion.php';
+include '../model/conexion.php';
 /* CONSULTA INFORMACION DE LA BASA DE DATOS */
 $consulta_info = $conexion->query(" select * from persona ");
 $dato_info = $consulta_info->fetch_object();
