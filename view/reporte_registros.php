@@ -21,7 +21,7 @@ class PDF extends FPDF
       $this->SetTextColor(109, 160, 159);
       $this->Cell(50); // mover a la derecha
       $this->SetFont('Arial', 'B', 15);
-      $this->Cell(100, 10, utf8mb4_decode("REPORTE DE REGISTROS"), 0, 1, 'C', 0);
+      $this->Cell(100, 10, utf8_decode("REPORTE DE REGISTROS"), 0, 1, 'C', 0);
       $this->Ln(7);
 
       /* CAMPOS DE LA TABLA */
