@@ -2,53 +2,37 @@
 
 require('./fpdf/fpdf.php');
 
+$fecha_ingreso="29/06/2024";
+$gerente = "MARBELLA NOHEMI CANELON  TORREALBA";
+$cargo_gerente="GERENTE NACIONAL DE TALENTO HUMANO";
+$gerencia = "GERENCIA DE TECNOLOGIA PARA LA INFORMACION";
+   
 class PDF extends FPDF
 {
+// Cabecera de página
+function Header()
+{
+    // Logo
+    $this->Image('../assets/encabezado.png',28,5,160);
+    // Arial bold 15
+    $this->SetFont('Arial','B',15);
+    // Movernos a la derecha
+    $this->Cell(80);
+    // Título
+    // Salto de línea
+    $this->Ln(20);
+}
 
-   // Cabecera de página
-   function Header()
-   {
-
-      $this->SetFont('Arial', 'B', 19); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
-      $this->Cell(45); // Movernos a la derecha
-      $this->SetTextColor(0, 0, 0); //color
-      //creamos una celda o fila
-      $this->Ln(3); // Salto de línea
-      $this->SetTextColor(103); //color
-
-      /* TITULO DE LA TABLA */
-      //color
-      $this->SetTextColor(109, 160, 159);
-      $this->Cell(50); // mover a la derecha
-      $this->SetFont('Arial', 'B', 15);
-      $this->Cell(100, 10, utf8mb4_decode("REPORTE DE REGISTROS"), 0, 1, 'C', 0);
-      $this->Ln(7);
-
-      /* CAMPOS DE LA TABLA */
-      //color
-      $this->SetFillColor(208, 244, 252); //colorFondo
-      $this->SetTextColor(0, 0, 0); //colorTexto
-      $this->SetDrawColor(163, 163, 163); //colorBorde
-      $this->SetFont('Arial', 'B', 11);
-      $this->Cell(18, 10, utf8_decode('ID'), 1, 0, 'C', 1);
-      $this->Cell(20, 10, utf8_decode('NOMBRE'), 1, 0, 'C', 1);
-      $this->Cell(30, 10, utf8_decode('APELLIDO'), 1, 0, 'C', 1);
-      $this->Cell(25, 10, utf8_decode('CEDULA'), 1, 0, 'C', 1);
-      $this->Cell(50, 10, utf8_decode('CARGO'), 1, 0, 'C', 1);
-   }
-
-   // Pie de página
-   function Footer()
-   {
-      $this->SetY(-15); // Posición: a 1,5 cm del final
-      $this->SetFont('Arial', 'I', 8); //tipo fuente, negrita(B-I-U-BIU), tamañoTexto
-      $this->Cell(0, 10, utf8_decode('Página ') . $this->PageNo() . '/{nb}', 0, 0, 'C'); //pie de pagina(numero de pagina)
-
-      $this->SetY(-15); // Posición: a 1,5 cm del final
-      $this->SetFont('Arial', 'I', 8); //tipo fuente, cursiva, tamañoTexto
-      $hoy = date('d/m/Y');
-      $this->Cell(355, 10, utf8_decode($hoy), 0, 0, 'C'); // pie de pagina(fecha de pagina)
-   }
+// Pie de página
+function Footer()
+{
+    //Posición: a 1,5 cm del final
+    $this->SetY(-15);
+    // Arial italic 8
+    $this->SetFont('Arial','I',8);
+    // Número de página
+    $this->image('../assets/footer.png', 28,275,0);
+}
 }
 
 include '../model/conexion.php';
@@ -56,27 +40,91 @@ include '../model/conexion.php';
 $consulta_info = $conexion->query(" select * from persona ");
 $dato_info = $consulta_info->fetch_object();
 
-$pdf = new PDF();
-$pdf->AddPage(); /* aqui entran dos para parametros (horientazion,tamaño)V->portrait H->landscape tamaño (A3.A4.A5.letter.legal) */
-$pdf->AliasNbPages(); //muestra la pagina / y total de paginas
 
+
+// Creación del objeto de la clase heredada
+$pdf = new PDF();
 $i = 0;
 $pdf->SetFont('Arial', '', 12);
 $pdf->SetDrawColor(163, 163, 163); //colorBorde
 
 $consulta_reporte = $conexion->query(" select * from persona ");
+$datos_reporte = $consulta_reporte->fetch_object();
 
-while ($datos_reporte = $consulta_reporte->fetch_object()) {
-   $i = $i + 1;
-   /* TABLA */
-   $pdf->Cell(18, 10, utf8_decode("$datos_reporte->id_persona"), 1, 0, 'C', 0);
-   $pdf->Cell(20, 10, utf8_decode("$datos_reporte->nombre"), 1, 0, 'C', 0);
-   $pdf->Cell(30, 10, utf8_decode("$datos_reporte->apellido"), 1, 0, 'C', 0);
-   $pdf->Cell(25, 10, utf8_decode("$datos_reporte->cedula"), 1, 0, 'C', 0);
-   $pdf->Cell(50, 10, utf8_decode("$datos_reporte->cargo"), 1, 0, 'C', 0);
-}
-
-
-$pdf->Output('reporteRegistros.pdf', 'I');//nombreDescarga, Visor(I->visualizar - D->descargar)
-
+$pdf->AliasNbPages();
+$pdf->SetLeftMargin(20);
+$pdf->AddPage();
+$pdf->SetFont('Arial','B', 12);
+$pdf->Ln(15);
+$pdf->setY(35);
+$pdf->cell(175,8,utf8_decode('CONSTANCIA DE TRABAJO'),0,0,'C',0);
+$pdf->ln(15);
+$pdf->SetXY(30, 50);
+$pdf->SetFont('Arial','',12);
+$pdf->cell(100,8,utf8_decode('Quien Suscribe, Ciudadano(a) '),0,0,'J',0);
+$pdf->SetXY(90, 50);
+$pdf->SetFont('Arial','B',12);
+$pdf->cell(160,8, utf8_decode("$gerente,"),0,0,'J',0);
+$pdf->SetXY(30, 56);
+$pdf->SetFont('Arial','',12);
+$pdf->cell(75,8,utf8_decode('en mi caracter de'),0,0,'J',0);
+$pdf->SetXY(68, 56);
+$pdf->SetFont('Arial','B',12);
+$pdf->cell(55,8, utf8_decode("$cargo_gerente"),0,'J');
+$pdf->SetXY(168, 56);
+$pdf->SetFont('Arial','',12);
+$pdf->cell(172,8,' de     la',0,0,'J',0);
+$pdf->SetXY(30, 63);
+$pdf->SetFont('Arial','',12);
+$pdf->multicell(200,6,utf8_decode('Corporacion Nacional de Alimentacion Escolar y debidamente    facultada     para 
+este acto, por  medio  de  la  presente  hago  constar   que   el(la)     ciudadano(a):'),30,'J');
+$pdf->SetXY(30, 75);
+$pdf->SetFont('Arial','B',12);
+$pdf->multicell(200,6,utf8_decode("$datos_reporte->nombre"),0,'J');
+$pdf->SetXY(51, 75);
+$pdf->multicell(200,6,utf8_decode("$datos_reporte->apellido".','),0,'J');
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(66, 75);
+$pdf->cell(172,6,utf8_decode('titular de la cedula de identidad número: '),0,'J');
+$pdf->SetXY(142, 75);
+$pdf->SetFont('Arial','B',12);
+$pdf->cell(200,6,utf8_decode("$datos_reporte->cedula".','),0,'J');
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(163, 75);
+$pdf->cell(172,6,utf8_decode('actualmente'),0,'J');
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(30, 81);
+$pdf->cell(172,6,utf8_decode('se desempeña como:'),0,'J');
+$pdf->SetXY(72, 81);
+$pdf->SetFont('Arial','B',12);
+$pdf->cell(200,6,utf8_decode("$datos_reporte->cargo".','),0,'J');
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(91, 81);
+$pdf->cell(172,6,utf8_decode('  adscrito   a   la  dependencia: '),0,'J');
+$pdf->SetXY(143, 81);
+$pdf->SetFont('Arial','B',12);
+$pdf->cell(0,6,utf8_decode("       GERENCIA DE"),0,'J');
+$pdf->SetXY(30, 87);
+$pdf->cell(0,6,utf8_decode("TECNOLOGIA DE LA INFORMACIÓN,"),0,'J');
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(107, 87);
+$pdf->cell(0,6,utf8_decode("con fecha de ingreso: "),0,'J');
+$pdf->SetFont('Arial','B',12);
+$pdf->SetXY(150, 87);
+$pdf->cell(0,6,utf8_decode("$fecha_ingreso".'.'),0,'J');
+$pdf->SetFont('Arial','',12);
+$pdf->SetXY(30, 100);
+$pdf->cell(0,6,utf8_decode("Constancia que se expide a peticion de la parte interesada al dia: "),0,'J');
+$pdf->SetFont('Arial','B',12);
+$pdf->SetXY(154, 100);
+$pdf->cell(0,6,utf8_decode("3 dias del mes"),0,'J');
+$pdf->SetXY(30, 106);
+$pdf->cell(0,6,utf8_decode("de junio del año 2024."),0,'J');
+$pdf->SetFont('Arial','B',7);
+$pdf->SetXY(135, 130);
+$pdf->cell(0,6,utf8_decode("Por la Construcción de la Patria Socialista..."),0,'J');
+$pdf->image('../assets/sello.png',28,140,0);
+/*for($i=1;$i<=40;$i++)
+$pdf->Cell(0,10,utf8_decode('imprimiendo linea de número'),0,1);*/
+$pdf->Output();
 ?>
