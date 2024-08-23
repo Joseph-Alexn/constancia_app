@@ -6,6 +6,39 @@ $fecha_ingreso="29/06/2024";
 $gerente = "MARBELLA NOHEMI CANELON  TORREALBA";
 $cargo_gerente="GERENTE NACIONAL DE TALENTO HUMANO";
 $gerencia = "GERENCIA DE TECNOLOGIA PARA LA INFORMACION";
+
+    date_default_timezone_set("America/Argentina/Buenos_Aires");
+
+        $fecha_dia = date("d");
+        $fecha_mes = date("m");
+        $fecha_year = date("Y");
+
+        $dia_semana = [
+            "Monday" => "lunes",
+            "Tuesday" => "martes",
+            "Wednesday" => "miercoles",
+            "Thursday" => "jueves",
+            "Friday" => "viernes",
+            "Saturday" => "sabado",
+            "Sunday" => "domingo"
+        ];
+
+        $meses_year = [
+            "01" => "enero",
+            "02" => "febrero",
+            "03" => "marzo",
+            "04" => "abril",
+            "05" => "mayo",
+            "06" => "junio",
+            "07" => "julio",
+            "08" => "agosto",
+            "09" => "septiembre",
+            "10" => "octubre",
+            "11" => "noviembre",
+            "12" => "diciembre"
+        ];
+
+        $fecha_final = $fecha_dia." de ".$meses_year[$fecha_mes]." de ".$fecha_year;
    
 class PDF extends FPDF
 {
@@ -14,6 +47,10 @@ function Header()
 {
     // Logo
     $this->Image('../assets/encabezado.png',15,8,145);
+    $this->Image('../assets/logo.png',168,8,18);
+    $this->SetFont('Arial','B',10);
+    $this->setXY(171,30);
+    $this->multicell(0,0,utf8_decode('CNAE'),0,'J');
     $this->setY(50);
     // Arial bold 15
     $this->SetFont('Arial','B',12);
@@ -29,9 +66,11 @@ function Header()
 function Footer()
 {
     // Posición: a 1,5 cm del final
-    $this->SetY(-15);
+    $this->SetY(250);
     // Número de página
-    $this->Image('../assets/footer.png',28);
+    $this->multicell(0,0,utf8_decode('Gerencia de Talento Humano -Edif. Sede del MPPPE piso 16. Esq. De Salas a Caja de Agua Parroquia Altagracia'),0,'C');
+    $this->SetY(253);
+    $this->multicell(0,0,utf8_decode('Dtto. Capital Caracas - Venezuela Telf. (0212)596-84-63 - RIF G-20011400-2'),0,'C');
 }
 }
 
@@ -163,6 +202,35 @@ $pdf->Multicell(0,0,utf8_decode("170,00"),0,'J');
 $pdf->setXY(150,155);
 $pdf->setfont('Arial','', 7);
 $pdf->Multicell(0,0,utf8_decode("170,00"),0,'J');
+$pdf->setXY(150,160);
+$pdf->setfont('Arial','', 7);
+$pdf->Multicell(0,0,utf8_decode("170,00"),0,'J');
+$pdf->setXY(150,165);
+$pdf->setfont('Arial','B', 7);
+$pdf->Multicell(0,0,utf8_decode("170,00"),0,'J');
+$pdf->setXY(150,175);
+$pdf->setfont('Arial','B', 7);
+$pdf->Multicell(0,0,utf8_decode("170,00"),0,'J');
+$pdf->setXY(44,190);
+$pdf->setfont('Arial','', 7);
+$pdf->Multicell(0,0,utf8_decode("Caracas "."$fecha_final"),0,'J');
+$pdf->image('../assets/sello2.png',100,178,80);
+$pdf->setXY(20,218);
+$pdf->setfont('Arial','', 7);
+$pdf->Multicell(0,0,utf8_decode("Toda Constancia expedida antes de la fecha señalada, cuyos datos no"),0,'J');
+$pdf->setXY(25,221);
+$pdf->setfont('Arial','', 7);
+$pdf->Multicell(0,0,utf8_decode("coincidan con los contenidos en la presente queda sin efecto."),0,'J');
+$pdf->setXY(38,226);
+$pdf->setfont('Arial','B', 7);
+$pdf->Multicell(0,0,utf8_decode("VÁLIDA POR NOVENTA(90) DÍAS"),0,'J');
+$pdf->setXY(31,229);
+$pdf->setfont('Arial','B', 7);
+$pdf->Multicell(0,0,utf8_decode("VA SIN TACHADURAS NI ENMENDADURAS"),0,'J');
+$pdf->setXY(28,232);
+$pdf->setfont('Arial','B', 7);
+$pdf->Multicell(0,0,utf8_decode("CUALQUIER ALTERACIÓN ANULA SU VALIDEZ"),0,'J');
+
 
 
 /*for($i=1;$i<=40;$i++)
