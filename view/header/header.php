@@ -13,10 +13,7 @@
                     <ul class="navbar-nav w-100 d-flex justify-content-between">
                         <div class="d-flex">
                             <li class="nav-item">
-                                <a class="nav-link" href="./reporte_registros.php" target="_blank"> Reporte de registros <i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
-                            </li>
-                            <li class=" nav-item">
-                                <a class="nav-link" href="./reporte_usuarios.php" target="_blank"> Reporte de usuarios <i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
+                                <a class="nav-link" href="./generar_constancia.php" target="_blank"> Generar constancia <i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
                             </li>
                         </div>
                         <li class=" nav-item">

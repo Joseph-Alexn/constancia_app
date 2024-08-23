@@ -40,11 +40,11 @@ if (empty($_SESSION["id_usuario"])) {
         <table class="table text-center">
             <thead class="bg-info-subtle">
                 <tr>
-                    <th class="bg-transparent" scope="col">ID</th>
                     <th class="bg-transparent" scope="col">NOMBRE</th>
                     <th class="bg-transparent" scope="col">APELLIDO</th>
                     <th class="bg-transparent" scope="col">CEDULA</th>
                     <th class="bg-transparent" scope="col">CARGO</th>
+                    <th class="bg-transparent" scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -53,7 +53,6 @@ if (empty($_SESSION["id_usuario"])) {
                 while ($datos = $sql->fetch_object()) { ?>
 
                     <tr>
-                        <td><?= $datos->id_persona; ?></td>
                         <td><?= $datos->nombre; ?></td>
                         <td><?= $datos->apellido; ?></td>
                         <td><?= $datos->cedula; ?></td>
@@ -63,7 +62,7 @@ if (empty($_SESSION["id_usuario"])) {
 
 
 
-                            <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning "><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
+                            <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
                             <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
 
 
