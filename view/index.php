@@ -35,7 +35,7 @@ if (empty($_SESSION["id_usuario"])) {
     <div class=" m-4 ">
         <div class="d-flex align-items-center pb-3">
             <a href="registro.php" class="btn btn-success"><i class="fa-solid fa-plus fa-lg"></i></a>
-            <h2 class="text-center text-secondary flex-grow-1">REGISTROS</h2>
+            <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
         </div>
         <table class="table text-center">
             <thead class="bg-info-subtle">
@@ -60,8 +60,7 @@ if (empty($_SESSION["id_usuario"])) {
                         <td>
 
 
-
-
+                            <a href="generar_constancia.php?id=<?=$datos->id_persona ?>" class='btn btn-small' name='generar'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
                             <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
                             <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
 

@@ -75,10 +75,17 @@ function Footer()
 }
 
 include '../model/conexion.php';
-/* CONSULTA INFORMACION DE LA BASA DE DATOS */
-$consulta_info = $conexion->query(" select * from persona ");
-$dato_info = $consulta_info->fetch_object();
-$consulta_reporte = $conexion->query(" select * from persona ");
+/* CONSULTA INFORMACION DE LA BASE DE DATOS */
+if(isset($_GET['id'])){
+    // Obtén el ID de la persona de la URL
+    $id_persona = $_GET['id'];
+
+    $consulta_info = $conexion->query("SELECT * FROM persona WHERE id_persona = $id_persona");
+    $dato_info = $consulta_info->fetch_object();
+    $consulta_reporte = $conexion->query(" select * from persona");
+    $dato_info = $consulta_reporte->fetch_object();
+}
+
 
 $datos_reporte = $consulta_reporte->fetch_object();
 
