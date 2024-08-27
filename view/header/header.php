@@ -12,9 +12,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav w-100 d-flex justify-content-between">
                         <div class="d-flex">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./generar_constancia.php" target="_blank"> Generar constancia <i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
-                            </li>
+ 
                         </div>
                         <li class=" nav-item">
                             <a class="nav-link " href="../model/cerrar_sesion.php"> Cerrar Sesión <i class="fa-solid fa-right-from-bracket fa-lg" style="color:#74C0FC;"></i></a>

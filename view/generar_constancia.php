@@ -81,13 +81,8 @@ if(isset($_GET['id'])){
     $id_persona = $_GET['id'];
 
     $consulta_info = $conexion->query("SELECT * FROM persona WHERE id_persona = $id_persona");
-    $dato_info = $consulta_info->fetch_object();
-    $consulta_reporte = $conexion->query(" select * from persona");
-    $dato_info = $consulta_reporte->fetch_object();
+    $datos_reporte = $consulta_info->fetch_object();
 }
-
-
-$datos_reporte = $consulta_reporte->fetch_object();
 
 // Creación del objeto de la clase heredada
 $pdf = new PDF();

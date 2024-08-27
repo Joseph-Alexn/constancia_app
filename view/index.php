@@ -40,10 +40,11 @@ if (empty($_SESSION["id_usuario"])) {
         <table class="table text-center">
             <thead class="bg-info-subtle">
                 <tr>
-                    <th class="bg-transparent" scope="col">NOMBRE</th>
-                    <th class="bg-transparent" scope="col">APELLIDO</th>
+                    <th class="bg-transparent" scope="col">NOMBRES</th>
+                    <th class="bg-transparent" scope="col">APELLIDOS</th>
                     <th class="bg-transparent" scope="col">CEDULA</th>
                     <th class="bg-transparent" scope="col">CARGO</th>
+                    <th class="bg-transparent" scope="col">GERENCIA</th>
                     <th class="bg-transparent" scope="col"></th>
                 </tr>
             </thead>
@@ -56,6 +57,7 @@ if (empty($_SESSION["id_usuario"])) {
                         <td><?= $datos->nombre; ?></td>
                         <td><?= $datos->apellido; ?></td>
                         <td><?= $datos->cedula; ?></td>
+                        <td><?= $datos->cargo; ?>
                         <td><?= $datos->cargo; ?></td>
                         <td>
 

@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="d-flex gap-3 justify-content-center d-md-flex mx-auto">
-                    <button type="submit" class="btn btn-primary " name="btningresar" value="ok">ingresar</button>
+                    <button type="submit" class="btn btn-primary " name="btningresar" value="ok">Ingresar</button>
                     <a href="view/registro_usuario.php" class="btn btn-dark ">Registrarse</a>
                 </div>
 
