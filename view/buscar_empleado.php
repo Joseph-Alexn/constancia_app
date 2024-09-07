@@ -1,11 +1,3 @@
-<?php
-session_start();
-if (empty($_SESSION["id_usuario"])) {
-    header("location: login.php");
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,10 +29,10 @@ if (empty($_SESSION["id_usuario"])) {
         <div class="d-flex align-items-center pb-3">
             <a href="registro.php" class="btn btn-success"><i class="fa-solid fa-plus fa-lg"></i></a>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
-            <form method="POST" action="buscar_empleado.php" class="d-flex" role="search">
-  <input class="form-control me-2" type="text" name="cedula" placeholder="Buscar empleado" aria-label="Search">
-  <button type="submit" class="btn btn-outline-success">Buscar</button>
-</form>
+            <form method="POST" class="d-flex" role="search">
+        <input class="form-control me-2" type="search" name="cedula" placeholder="Buscar empleado" aria-label="Search">
+        <button href="" class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
         </div>
         <table class="table text-center">
             <thead class="bg-info-subtle">
@@ -55,8 +47,12 @@ if (empty($_SESSION["id_usuario"])) {
             </thead>
             <tbody>
                 <?php
-                $sql = $conexion->query(" select * from persona");
-                while ($datos = $sql->fetch_object()) { ?>
+                $cedula = $_POST["cedula"];
+
+                $sql = $conexion->query("SELECT * FROM persona WHERE cedula = '$cedula'");
+                if ($sql->num_rows > 0) {
+                    while ($datos = $sql->fetch_object()) {
+                        ?>
 
                     <tr>
                         <td><?= $datos->nombre; ?></td>
@@ -76,6 +72,9 @@ if (empty($_SESSION["id_usuario"])) {
                     </tr>
                 <?php
                 }
+            }else{
+                echo "No se encontraron personas con esa cédula.";
+            }
                 ?>
             </tbody>
         </table>

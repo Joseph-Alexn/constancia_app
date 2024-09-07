@@ -4,7 +4,8 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary p-3">
             <div class="container-fluid">
-                <div class="navbar-brand"><i class="fa-solid fa-user" style="color: #74C0FC;">&nbsp;&nbsp;</i>
+                <div class="navbar-brand">
+                    <img src="../assets/logo.png" width=50>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
