@@ -27,7 +27,7 @@
     <!-- <div class="container-fluid row "> -->
     <div class=" m-4 ">
         <div class="d-flex align-items-center pb-3">
-            <a href="registro.php" class="btn btn-success"><i class="fa-solid fa-plus fa-lg"></i></a>
+            <a href="index.php" class="btn btn-success"><i class="fa-solid fa-house fa-lg"></i></a>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
             <form method="POST" class="d-flex" role="search">
         <input class="form-control me-2" type="search" name="cedula" placeholder="Buscar empleado" aria-label="Search">

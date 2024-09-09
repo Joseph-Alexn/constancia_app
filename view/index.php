@@ -35,7 +35,7 @@ if (empty($_SESSION["id_usuario"])) {
     <!-- <div class="container-fluid row "> -->
     <div class=" m-4 ">
         <div class="d-flex align-items-center pb-3">
-            <a href="registro.php" class="btn btn-success"><i class="fa-solid fa-plus fa-lg"></i></a>
+            <a href="registro.php" class="btn btn-success"><i class="fa-solid fa-file-excel fa-lg"></i></a>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
             <form method="POST" action="buscar_empleado.php" class="d-flex" role="search">
   <input class="form-control me-2" type="text" name="cedula" placeholder="Buscar empleado" aria-label="Search">
@@ -67,7 +67,7 @@ if (empty($_SESSION["id_usuario"])) {
                         <td>
 
 
-                            <a href="generar_constancia.php?id=<?=$datos->id_persona ?>" class='btn btn-small' name='generar'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
+                            <a href="generar_constancia.php?id=<?=$datos->id_persona ?>" class='btn btn-small'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
                             <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
                             <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
 
