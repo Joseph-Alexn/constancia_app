@@ -134,7 +134,7 @@ $pdf->SetFont('Arial','', 7);
 $pdf->Multicell(0,0,utf8_decode('DEPENDENCIA DE ADSCRIPCION'),0,'J');
 $pdf->setXY(25,105);
 $pdf->setfont('Arial','B', 8);
-$pdf->Multicell(0,0,utf8_decode("GERENCIA DE TECNOLOGIA DE LA INFORMACION"),0,'J');
+$pdf->Multicell(0,0,utf8_decode("$datos_reporte->gerencia"),0,'J');
 $pdf->setXY(149,100);
 $pdf->setfont('Arial','', 7);
 $pdf->Multicell(0,0,utf8_decode("UBICACION REAL"),0,'J');

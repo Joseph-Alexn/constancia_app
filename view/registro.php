@@ -40,6 +40,10 @@
                 <label for="exampleInputEmail1" class="form-label"> Cargo </label>
                 <input type="text" class="form-control" name="cargo">
             </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"> Gerencia </label>
+                <input type="text" class="form-control" name="gerencia">
+            </div>
             
             <div class="d-flex gap-3 justify-content-center d-md-flex mx-auto">
                 <button type="submit" class="btn btn-success" name="btnregistrar" value="ok">Guardar</button>

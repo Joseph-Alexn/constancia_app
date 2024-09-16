@@ -35,12 +35,18 @@ if (empty($_SESSION["id_usuario"])) {
     <!-- <div class="container-fluid row "> -->
     <div class=" m-4 ">
         <div class="d-flex align-items-center pb-3">
-            <a href="registro.php" class="btn btn-success"><i class="fa-solid fa-file-excel fa-lg"></i></a>
+        <form method="POST" action="../controller/agregar_excel.php" enctype="multipart/form-data" class="d-flex" role="search">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupFile01"><i class="fas fa-file-excel" style="color:#52be80;"></i></label>
+                <input type="file" name="dataCliente" class="form-control" id="fileInput">
+                <input type="submit" name="subir" class="btn btn-success" value="Cargar"></input>
+            </div>
+        </form>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
             <form method="POST" action="buscar_empleado.php" class="d-flex" role="search">
-  <input class="form-control me-2" type="text" name="cedula" placeholder="Buscar empleado" aria-label="Search">
-  <button type="submit" class="btn btn-outline-success">Buscar</button>
-</form>
+                <input class="form-control me-2" type="text" name="cedula" placeholder="Buscar empleado" aria-label="Search">
+                <button type="submit" class="btn btn-outline-success">Buscar</button>
+            </form>
         </div>
         <table class="table text-center">
             <thead class="bg-info-subtle">
@@ -63,7 +69,7 @@ if (empty($_SESSION["id_usuario"])) {
                         <td><?= $datos->apellido; ?></td>
                         <td><?= $datos->cedula; ?></td>
                         <td><?= $datos->cargo; ?> </td>
-                        <td><?= $datos->cargo; ?></td>
+                        <td><?= $datos->gerencia; ?></td>
                         <td>
 
 

@@ -46,6 +46,10 @@ $sql = $conexion->query("select * from persona where id_persona=$id");
                     <label for="exampleInputEmail1" class="form-label"> Cargo</label>
                     <input type="text" class="form-control" name="cargo" value="<?= $datos->cargo; ?>">
                 </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"> Gerencia </label>
+                    <input type="text" class="form-control" name="gerencia" value="<?= $datos->gerencia; ?>">
+                </div>
 
 
                 <div class="d-flex gap-3 justify-content-center d-md-flex mx-auto">
