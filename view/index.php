@@ -26,6 +26,7 @@ if (empty($_SESSION["id_usuario"])) {
     include "../controller/registro_persona.php";
     include "../controller/eliminar_persona.php";
     include "../controller/modificar_persona.php";
+    include "../controller/agregar_excel.php";
 
 
     include "header/header.php";
@@ -38,7 +39,7 @@ if (empty($_SESSION["id_usuario"])) {
         <form method="POST" action="../controller/agregar_excel.php" enctype="multipart/form-data" class="d-flex" role="search">
             <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupFile01"><i class="fas fa-file-excel" style="color:#52be80;"></i></label>
-                <input type="file" name="dataCliente" class="form-control" id="fileInput">
+                <input type="file" name="archivo_excel" class="form-control" id="fileInput">
                 <input type="submit" name="subir" class="btn btn-success" value="Cargar"></input>
             </div>
         </form>
