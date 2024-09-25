@@ -13,7 +13,11 @@ if (!empty($_POST["btningresar"])) {
                 $_SESSION["id_usuario"] = $datos->id_usuario;
                 $_SESSION["nombre"] = $datos->nombre;
                 $_SESSION["apellido"] = $datos->apellido;
+            if($usuario == "admin" || $usuario == "Admin"){
                 header("location: view/index.php");
+            }else{
+                header("location: view/nomina.php");
+            }
             } else {
                 echo '<div class="alert alert-danger">Acceso Denegado</div>';
             }
