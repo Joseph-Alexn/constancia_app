@@ -34,8 +34,8 @@ if (isset($_FILES['archivo_excel']) && $_FILES['archivo_excel']['error'] === UPL
             $sql_insert = "INSERT INTO persona (nombre, apellido, cedula, cargo, gerencia) VALUES ('$valorA', '$valorB', '$valorC', '$valorD', '$valorE')";
             $conexion->query($sql_insert);
         }
+        header("location: ../view/index.php");
     }
-    header("location: ../view/index.php");
     // Limpiar el archivo temporal
     unlink($tempFile);
 }
