@@ -27,7 +27,7 @@
     <!-- <div class="container-fluid row "> -->
     <div class=" m-4 ">
         <div class="d-flex align-items-center pb-3">
-            <a href="nomina.php" class="btn btn-success"><i class="fa-solid fa-house fa-lg"></i></a>
+            <a href="index.php" class="btn btn-success"><i class="fa-solid fa-house fa-lg"></i></a>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
             <form method="POST" class="d-flex" role="search">
         <input class="form-control me-2" type="search" name="cedula" placeholder="Buscar empleado" aria-label="Search">
@@ -64,6 +64,9 @@
 
 
                             <a href="generar_constancia.php?id=<?=$datos->id_persona ?>" class='btn btn-small' name='generar'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
+                            <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
+                            <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
+
 
                         </td>
                     </tr>

@@ -26,7 +26,6 @@ if (empty($_SESSION["id_usuario"])) {
     include "../controller/registro_persona.php";
     include "../controller/eliminar_persona.php";
     include "../controller/modificar_persona.php";
-    include "../controller/agregar_excel.php";
 
 
     include "header/header.php";
@@ -44,7 +43,7 @@ if (empty($_SESSION["id_usuario"])) {
             </div>
         </form>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
-            <form method="POST" action="buscar_empleado.php" class="d-flex" role="search">
+            <form method="POST" action="buscar_empleado_admin.php" class="d-flex" role="search">
                 <input class="form-control me-2" type="text" name="cedula" placeholder="Buscar empleado" aria-label="Search">
                 <button type="submit" class="btn btn-outline-success">Buscar</button>
             </form>

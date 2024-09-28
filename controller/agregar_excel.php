@@ -20,6 +20,17 @@ if (isset($_FILES['archivo_excel']) && $_FILES['archivo_excel']['error'] === UPL
         $valorC = $hojaActual->getCell('C'.$indiceFila)->getValue();
         $valorD = $hojaActual->getCell('D'.$indiceFila)->getValue();
         $valorE = $hojaActual->getCell('E'.$indiceFila)->getValue();
+
+        if (empty($valorA) || empty($valorB) || empty($valorC) || empty($valorD) || empty($valorE)) {
+            echo "Error: Todos los campos son requeridos en la fila $indiceFila. Por favor revise el archivo.<br>";
+            continue; // Pasar a la siguiente iteración del bucle
+        }
+    
+        // Validar si la cédula contiene solo números
+        if (!is_numeric($valorC)) {
+            echo "Error: El campo cédula en la fila $indiceFila debe contener solo números.<br>";
+            continue; // Pasar a la siguiente iteración del bucle
+        }
     
         // Verificar si la cédula ya existe en la tabla
         $sql_select = "SELECT * FROM persona WHERE cedula = '$valorC'";
@@ -38,4 +49,8 @@ if (isset($_FILES['archivo_excel']) && $_FILES['archivo_excel']['error'] === UPL
     }
     // Limpiar el archivo temporal
     unlink($tempFile);
+} else {
+    // Mostrar un mensaje de error si no se seleccionó ningún archivo o si ocurrió un error durante la carga
+    echo "Lo sentimos, se debe seleccionar un archivo para subir.";
 }
+
