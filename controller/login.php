@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+// Verificar si el usuario ya está autenticado antes de mostrar el formulario de inicio de sesión
+if (isset($_SESSION["id_usuario"])) {
+    if ($_SESSION["rol"] == "administrador") {
+        header("location: view/index.php");
+    } else {
+        header("location: view/nomina.php");
+    }
+    exit; // Importante: detener la ejecución del resto del código una vez redirigido
+}
+
 if (!empty($_POST["btningresar"])) {
     if (!empty($_POST["usuario"]) and !empty($_POST["clave"])) {
         $usuario = $_POST["usuario"];
@@ -13,11 +24,13 @@ if (!empty($_POST["btningresar"])) {
                 $_SESSION["id_usuario"] = $datos->id_usuario;
                 $_SESSION["nombre"] = $datos->nombre;
                 $_SESSION["apellido"] = $datos->apellido;
-            if($usuario == "admin" || $usuario == "Admin"){
-                header("location: view/index.php");
-            }else{
-                header("location: view/nomina.php");
-            }
+                $_SESSION["rol"] = $datos->rol; // Guardar el rol real del usuario en la sesión
+                if ($datos->rol == "administrador") {
+                    header("location: view/index.php");
+                } else {
+                    header("location: view/nomina.php");
+                }
+                exit; // Importante: detener la ejecución del resto del código una vez redirigido
             } else {
                 echo '<div class="alert alert-danger">Acceso Denegado</div>';
             }
@@ -25,23 +38,6 @@ if (!empty($_POST["btningresar"])) {
             echo '<div class="alert alert-danger">Acceso Denegado</div>';
         }
     } else {
-        echo '<script>
-        (() => {
-            "use strict";
-
-            const forms = document.querySelectorAll(".needs-validation");
-
-            Array.from(forms).forEach((form) => {
-                form.addEventListener("submit", (event) => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-
-                    form.classList.add("was-validated");
-                }, false);
-            });
-        })();</script>';
+        echo '<div class="alert alert-danger">Por favor, ingrese usuario y contraseña</div>';
     }
 }
-?>

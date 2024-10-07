@@ -30,9 +30,9 @@
             <a href="index.php" class="btn btn-success"><i class="fa-solid fa-house fa-lg"></i></a>
             <h2 class="text-center text-secondary flex-grow-1">NÓMINA</h2>
             <form method="POST" class="d-flex" role="search">
-        <input class="form-control me-2" type="search" name="cedula" placeholder="Buscar empleado" aria-label="Search">
-        <button href="" class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+                <input class="form-control me-2" type="search" name="cedula" placeholder="Buscar empleado" aria-label="Search">
+                <button href="" class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
         </div>
         <table class="table text-center">
             <thead class="bg-info-subtle">
@@ -52,29 +52,29 @@
                 $sql = $conexion->query("SELECT * FROM persona WHERE cedula = '$cedula'");
                 if ($sql->num_rows > 0) {
                     while ($datos = $sql->fetch_object()) {
-                        ?>
+                ?>
 
-                    <tr>
-                        <td><?= $datos->nombre; ?></td>
-                        <td><?= $datos->apellido; ?></td>
-                        <td><?= $datos->cedula; ?></td>
-                        <td><?= $datos->cargo; ?> </td>
-                        <td><?= $datos->cargo; ?></td>
-                        <td>
-
-
-                            <a href="generar_constancia.php?id=<?=$datos->id_persona ?>" class='btn btn-small' name='generar'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
-                            <a href="modificar.php?id=<?=$datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
-                            <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
+                        <tr>
+                            <td><?= $datos->nombre; ?></td>
+                            <td><?= $datos->apellido; ?></td>
+                            <td><?= $datos->cedula; ?></td>
+                            <td><?= $datos->cargo; ?> </td>
+                            <td><?= $datos->cargo; ?></td>
+                            <td>
 
 
-                        </td>
-                    </tr>
+                                <a href="generar_constancia.php?id=<?= $datos->id_persona ?>" class='btn btn-small' name='generar'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
+                                <a href="modificar.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #ffff;"></i>
+                                    <a onclick="return mensaje();" href="./index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger" name="btneliminar"><i class="fa-solid fa-trash-can" style="color: #ffff;"></i></a>
+
+
+                            </td>
+                        </tr>
                 <?php
+                    }
+                } else {
+                    echo "No se encontraron personas con esa cédula.";
                 }
-            }else{
-                echo "No se encontraron personas con esa cédula.";
-            }
                 ?>
             </tbody>
         </table>

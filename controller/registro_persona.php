@@ -25,4 +25,3 @@ if (!empty($_POST["btnregistrar"])) {
         echo '<div class="alert alert-warning">Alguno de los campos está vacío</div>';
     }
 }
-?>

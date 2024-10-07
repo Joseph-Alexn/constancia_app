@@ -23,25 +23,25 @@
 
             ?>
 
-                <div class="mb-3">
-                    <label for="validationServer01" class="form-label"> Usuario </label>
-                    <input type="text" class="form-control" id="validationServer01" name="usuario" required>
-                    <div class="invalid-feedback">
-                        El campo no puede estar vacio
-                    </div>
+            <div class="mb-3">
+                <label for="validationServer01" class="form-label"> Usuario </label>
+                <input type="text" class="form-control" id="validationServer01" name="usuario" required>
+                <div class="invalid-feedback">
+                    El campo no puede estar vacio
                 </div>
-                <label for="validationServer02" class="form-label"> Contraseña </label>
-                <div class="mb-3  input-group has-validation">
-                    <input type="password" id="validationServer02" class="form-control" name="clave" required>
-                    <button type="button" class="btn btn-dark fas fa-eye verPassword" data-bs-toggle="button" onclick="vista()" id="verPassword"></button>
-                    <div class="invalid-feedback">
-                        El campo no puede estar vacio
-                    </div>
+            </div>
+            <label for="validationServer02" class="form-label"> Contraseña </label>
+            <div class="mb-3  input-group has-validation">
+                <input type="password" id="validationServer02" class="form-control" name="clave" required>
+                <button type="button" class="btn btn-dark fas fa-eye verPassword" data-bs-toggle="button" onclick="vista()" id="verPassword"></button>
+                <div class="invalid-feedback">
+                    El campo no puede estar vacio
                 </div>
-                <div class="d-flex gap-3 justify-content-center d-md-flex mx-auto">
-                    <button type="submit" class="btn btn-primary " name="btningresar" value="ok">Ingresar</button>
-                    <a href="view/registro_usuario.php" class="btn btn-dark ">Registrarse</a>
-                </div>
+            </div>
+            <div class="d-flex gap-3 justify-content-center d-md-flex mx-auto">
+                <button type="submit" class="btn btn-primary " name="btningresar" value="ok">Ingresar</button>
+                <a href="view/registro_usuario.php" class="btn btn-dark ">Registrarse</a>
+            </div>
 
 
         </form>

@@ -65,8 +65,8 @@ if (empty($_SESSION["id_usuario"])) {
                         <td>
 
 
-                            <a href="generar_constancia.php?id=<?=$datos->id_persona ?>" class='btn btn-small'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
-                            
+                            <a href="generar_constancia.php?id=<?= $datos->id_persona ?>" class='btn btn-small'><i class="fas fa-file-pdf" style="color:#74C0FC;"></i></a>
+
                         </td>
                     </tr>
                 <?php

@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav w-100 d-flex justify-content-between">
                         <div class="d-flex">
- 
+
                         </div>
                         <li class=" nav-item">
                             <a class="nav-link " href="../model/cerrar_sesion.php"> Cerrar Sesión <i class="fa-solid fa-right-from-bracket fa-lg" style="color:#74C0FC;"></i></a>

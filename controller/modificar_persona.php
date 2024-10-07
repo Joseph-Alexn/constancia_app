@@ -19,4 +19,3 @@ if (!empty($_POST["btnactualizar"])) {
         echo '<div class="alert alert-warning">Alguno de los campos está vacio</div>';
     }
 }
-?>
